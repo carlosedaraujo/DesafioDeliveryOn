@@ -1,34 +1,56 @@
 ﻿using System;
 
-public class Desafio {
-    public static void Main(string[] args) {
+namespace desafiodo;
 
-        Console.WriteLine("Digite dois numeros separados por espaço (sendo o primeiro o tamanho do array e o segundo o numero do item que não será pago)");
-#pragma warning disable CS8602 // Desreferência de uma referência possivelmente nula.
-        string[] nk = Console.ReadLine().Split(' ');
-#pragma warning restore CS8602 // Desreferência de uma referência possivelmente nula.
+//Considerei para este código os valores que lembrei lá teste {2, 10, 3, 9}. 
+//Sendo que eram duas pessoas e o valor da discordância de pagamento era 10.
+//Na interatividade dá pra colocar qualquer valor desde que o valor 
 
-        List<int> lista = new List<int>();
-        foreach (var item in nk)
-        {
-            lista.Add(Convert.ToInt32(item));
-        }
+class Desafio {
+    static void Main(string[] args) {
 
-        int k = lista[1];
+        //Limpa a tela
+        Console.Clear();
 
-        int tamanhoArray = Convert.ToInt32(lista[0]);
+        //Criação de um array
+        Console.WriteLine("Digite a quantidade de elementos para divisão da despesa)");
 
-        int[] array = new int[tamanhoArray];
+        string input = Console.ReadLine();
+        int.TryParse(input, out int n);
 
-        for (int i=0; i < tamanhoArray; i++) 
+        int[] array = new int[n];
+
+        for (int i=0; i < n; i++) 
         {
             Console.WriteLine($"Digite o elemento {i+1}");
             array[i] = Convert.ToInt32(Console.ReadLine());
         }
 
+        // Informações do Pagamento
+        Console.WriteLine("Qual o valor discorda para pagamento?");
+        int resp = Convert.ToInt32(Console.ReadLine());
+        int k = Array.IndexOf(array, resp);
+        
         int b = array[k];
 
-        Console.WriteLine(b);
+        int total = (array.Sum() - b)/2;
+        Console.WriteLine($"Valor Total sem discordância: {array.Sum()}");
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine("Valor a ser pago pela pessoa 2 que discordou do valor: " + total);
+        Console.WriteLine("-------------------------------");        
+        
+        Console.WriteLine("Qual o valor pago?");
+        int vPago = Convert.ToInt32(Console.ReadLine());
+        if (total == vPago)
+        {
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("Ok");
+        }
+        else
+        {
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine($"Valor a ser reembolsado pois não descontou do pagamento {b}: { vPago - total}");
+        }
     }
 }
 
