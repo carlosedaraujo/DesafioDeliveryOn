@@ -50,6 +50,8 @@ class Desafio {
         {
             Console.WriteLine("-------------------------------");
             Console.WriteLine($"Valor a ser reembolsado pois não descontou do pagamento {b}: { vPago - total}");
+            Console.WriteLine("Pressione qualquer tecla para sair...");
+            Console.ReadKey();
         }
     }
 }
