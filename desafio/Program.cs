@@ -2,9 +2,9 @@
 
 namespace desafiodo;
 
-//Considerei para este código os valores que lembrei lá teste {2, 10, 3, 9}. 
+//Considerei para este código os valores que lembrei lá do teste {2, 10, 3, 9}. 
 //Sendo que eram duas pessoas e o valor da discordância de pagamento era 10.
-//Na interatividade dá pra colocar qualquer valor desde que o valor 
+//Na interatividade dá pra colocar qualquer valor de tamanho para o array e informar os dados de discordância e pagamento.desde que o valor 
 
 class Desafio {
     static void Main(string[] args) {
@@ -15,7 +15,7 @@ class Desafio {
         //Criação de um array
         Console.WriteLine("Digite a quantidade de elementos para divisão da despesa)");
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine() ?? "0";
         int.TryParse(input, out int n);
 
         int[] array = new int[n];
