@@ -4,7 +4,9 @@ public class Desafio {
     public static void Main(string[] args) {
 
         Console.WriteLine("Digite dois numeros separados por espaço (sendo o primeiro o tamanho do array e o segundo o numero do item que não será pago)");
+#pragma warning disable CS8602 // Desreferência de uma referência possivelmente nula.
         string[] nk = Console.ReadLine().Split(' ');
+#pragma warning restore CS8602 // Desreferência de uma referência possivelmente nula.
 
         List<int> lista = new List<int>();
         foreach (var item in nk)
@@ -27,14 +29,6 @@ public class Desafio {
         int b = array[k];
 
         Console.WriteLine(b);
-
-    static void resposta (List<int> array, int k, int b) 
-    {
-            int soma = (array.Sum() - b) / 2;
-            
-
-
     }
-   }
 }
 
